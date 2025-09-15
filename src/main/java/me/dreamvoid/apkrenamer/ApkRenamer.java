@@ -86,7 +86,7 @@ public class ApkRenamer {
                     // getCertificateMetas 会在未签名时抛出异常或返回空列表
                     List<CertificateMeta> certs = apkFile.getCertificateMetaList();
                     isSigned = certs != null && !certs.isEmpty();
-                } catch (CertificateException e) {
+                } catch (CertificateException | net.dongliu.apk.parser.exception.ParserException e) {
                     // 认为未签名
                     isSigned = false; 
                 } catch (IOException e) {
